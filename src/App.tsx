@@ -1,26 +1,25 @@
-import React from 'react'
+import {Route , Routes} from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Cart from './pages/CartPage'
+import NotFound from './pages/NotFoundPage'
+import Product from './pages/ProductPage'
+import ProductDetails from './pages/ProductDetails'
 import './App.css'
-import Addtransaction from './component/Addtransaction'
-import Balance from './component/Balance'
-import Header from './component/Header'
-import IcomeExpense from './component/IcomeExpense'
-import TransactionList from './component/TransactionList'
-import { GlobalContext } from './Contexts/GlobalState'
 
 
 const App = () => {
   return (
-    <div className='app'>
-
-      <Header/>
-      <GlobalContext>
-      <Balance/>
-      <IcomeExpense/>
-      <TransactionList/>
-      <Addtransaction/>
-      </GlobalContext>
-    </div>
+    <>
+    <Navbar/>
+      <Routes>
+      <Route path='/'  element={<Product/>}/>
+      <Route path='/cart'  element={<Cart/>}/>
+      <Route path='/details'  element={<ProductDetails/>}/>
+      <Route path='/notFound'  element={<NotFound/>}/>
+    </Routes>
+    </>
   )
 }
 
 export default App
+
